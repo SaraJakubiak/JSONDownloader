@@ -63,9 +63,7 @@ namespace JSONDownloader {
                 Console.WriteLine("Done.");
 
             } else {
-
                 Console.WriteLine("No files to download.");
-
             }
         }
 
@@ -148,22 +146,15 @@ namespace JSONDownloader {
         /// <returns>Whether the URL is valid</returns>
         public static bool IsValidURL(string url) {
 
-            bool isValid = false;
-
             // check for valid URI string formatting
             if (Uri.IsWellFormedUriString(url, UriKind.Absolute)) {
 
                 // ensure the scheme is http or https
                 Uri uri = new Uri(url);
-                bool isValidSchemeHTTP = uri.Scheme == Uri.UriSchemeHttp;
-                bool isValidSchemeHTTPS = uri.Scheme == Uri.UriSchemeHttps;
-
-                if (isValidSchemeHTTP || isValidSchemeHTTPS) {
-                    isValid = true;
-                }
+                return (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps);
+            } else {
+                return false;
             }
-
-            return isValid;
         }
 
 
