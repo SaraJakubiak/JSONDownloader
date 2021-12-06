@@ -11,6 +11,7 @@
 ## Notes
 ### Key assumptions
 - If URL is valid and exists, it leads to valid JSON file.
+- Valid URL includes HTTP/HTTPS scheme.
 
 ### Timeout
 The app currently does not handle requests taking a long time in any way. An example solution would be to retry the request as a new task if the original is taking too long and if one of them succeeds to cancel the other(s).
